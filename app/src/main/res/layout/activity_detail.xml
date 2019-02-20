@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/movie1"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/movie5">
+
+            <ImageView
+                android:id="@+id/poster_small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/movie5"
+                android:contentDescription="@string/movie_image"
+                android:padding="@dimen/movie10"
+                tools:src="@drawable/ic_launcher_background" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/release_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/movie5"
+                    tools:text="30/082018" />
+
+
+                <TextView
+                    android:id="@+id/ratings"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/movie5"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                    tools:text="8.1/10" />
+
+
+                <ToggleButton
+                    android:id="@+id/favorite_icon"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@android:drawable/btn_star_big_off"
+                    android:checked="false"
+                    android:textOff=""
+                    android:textOn="" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#86c9ba">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/synopsis"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/movie12"
+                    android:paddingRight="@dimen/movie12"
+                    tools:text="Some awesome sample to look up to" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/movie12"
+                    android:paddingRight="@dimen/movie12"
+                    android:text="Trailers"
+                    android:textStyle="bold" />
+
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/trailer_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    android:paddingBottom="8dp" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/movie12"
+                    android:paddingRight="@dimen/movie12"
+                    android:text="Reviews"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:background="#060b03" />
+
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/review_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    android:paddingBottom="8dp" />
+
+            </LinearLayout>
+
+
+        </ScrollView>
+
+
+    </LinearLayout>
+
+</layout>

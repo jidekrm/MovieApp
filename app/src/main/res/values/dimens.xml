@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="movie16">16dp</dimen>
+    <dimen name="movie40">40dp</dimen>
+    <dimen name="movie1">1dp</dimen>
+    <dimen name="movie8">8dp</dimen>
+    <dimen name="movie5">5dp</dimen>
+    <dimen name="movie_t20">20sp</dimen>
+    <dimen name="movie10">10dp</dimen>
+    <dimen name="movie2">2dp</dimen>
+    <dimen name="movie12">12dp</dimen>
+</resources>
