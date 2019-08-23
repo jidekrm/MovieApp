@@ -98,22 +98,25 @@ public class MovieNetworkDataSource {
     }
 
     public synchronized void fetchReview(String sorter) {
-        movieExecutor.networkIO().execute(() -> {
-            try {
-                URL mSearchUrl = NetworkUtils.buildUrlRT(sorter);
-                String searchResults = NetworkUtils.getResponseFromHttpURL(mSearchUrl);
-                Log.i("FETCHMOVIE NDS R" ,"" + searchResults);
+        movieExecutor.networkIO().execute(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    URL mSearchUrl = NetworkUtils.buildUrlRT(sorter);
+                    String searchResults = NetworkUtils.getResponseFromHttpURL(mSearchUrl);
+                    Log.i("FETCHMOVIE NDS R", "" + searchResults);
 
-                ArrayList<String> reviewValues = JsonUtil2.parseReviewJson(searchResults);
-                if (reviewValues != null && reviewValues.size() != 0) {
-                    nReview.postValue(reviewValues);
-                } else {
-                    ArrayList<String> reviewValuesForNull = new ArrayList<>();
-                    reviewValuesForNull.add("No Reviews Yet");
-                    nReview.postValue(reviewValuesForNull);
+                    ArrayList<String> reviewValues = JsonUtil2.parseReviewJson(searchResults);
+                    if (reviewValues != null && reviewValues.size() != 0) {
+                        nReview.postValue(reviewValues);
+                    } else {
+                        ArrayList<String> reviewValuesForNull = new ArrayList<>();
+                        reviewValuesForNull.add("No Reviews Yet");
+                        nReview.postValue(reviewValuesForNull);
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
             }
         });
     }
